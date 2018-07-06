@@ -219,5 +219,5 @@
     
     
     // Assign to console object
-    Object.assign(console, log);
+    Object.assign(window.console, window.log);
 })();
