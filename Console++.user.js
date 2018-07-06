@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  hej
 // @author       You
-// @match        *
+// @match        *://*/*
 // @grant        none
 // @downloadURL  https://github.com/Saschamz/userscripts/raw/master/Console%2B%2B.user.js
 // ==/UserScript==
