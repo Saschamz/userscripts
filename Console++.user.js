@@ -6,6 +6,7 @@
 // @author       You
 // @match        *
 // @grant        none
+// @downloadURL  https://github.com/Saschamz/userscripts/raw/master/Console%2B%2B.user.js
 // ==/UserScript==
 
 (function() {
