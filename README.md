@@ -8,8 +8,7 @@ Adds styling related methods to console object.
 ## Bitbucker PR Template 
 Automatically fills the WYSIWYG editor in BitBucket when creating a new PR template.
 
-To change the customize the template make your changes in the editor and run the following
-inside your browser terminal:
+To customize the template make your changes in the editor and run the following inside your browser terminal:
 ```javascript
 localStorage.setItem('BITBUCKET_PR_TEMPLATE', document.querySelector('.ProseMirror').innerHTML)
 ```
