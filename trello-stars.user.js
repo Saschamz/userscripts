@@ -4,19 +4,20 @@
 // @version      0.1
 // @description  Locally star trello cards you need to keep track of.
 // @author       Sascha Ringström
-// @match        *://*/*
+// @match        https://trello.com/b/*
 // @grant        none
 // @downloadURL  https://github.com/Saschamz/userscripts/raw/master/trello-stars.user.js
 // ==/UserScript==
 
-(function() {
-  const starredCards = new Set(JSON.parse(localStorage.getItem('TRELLO_STARS'))) || {}
+;(function() {
+  const starredCards =
+    new Set(JSON.parse(localStorage.getItem('TRELLO_STARS'))) || {}
   const allVisibleCards = Array.from(document.querySelectorAll('.list-card'))
   let hoveredCard = null
-  
+
   allVisibleCards
     .filter(card => starredCards.has(card.href))
-    .forEach(card => card.style.background = 'gold')
+    .forEach(card => (card.style.background = 'gold'))
 
   document.addEventListener('keydown', ({ key }) => {
     if (key === '§' && hoveredCard) {
@@ -28,7 +29,10 @@
         hoveredCard.style.background = 'gold'
       }
 
-      localStorage.setItem('TRELLO_STARS', JSON.stringify(Array.from(starredCards)))
+      localStorage.setItem(
+        'TRELLO_STARS',
+        JSON.stringify(Array.from(starredCards))
+      )
     }
   })
 
@@ -36,11 +40,9 @@
     card.addEventListener('mouseenter', ({ target }) => {
       hoveredCard = target
     })
-    
+
     card.addEventListener('mouseleave', () => {
       hoveredCard = null
     })
   })
-})();
-
-
+})()
