@@ -14,6 +14,12 @@ localStorage.setItem('BITBUCKET_PR_TEMPLATE', document.querySelector('.ProseMirr
 ```
 #### [INSTALL BITBUCKET PR TEMPLATE](https://github.com/Saschamz/userscripts/raw/master/bitbucket-pr-template.user.js)
 
+## 🎴️ Trello Ongoing Cards
+Keep track of cards that are labelled with a tag containing the text "ongoing".
+They are put inside a fixed horizontal container with the option to minimize.
+
+#### [INSTALL TRELLO ONGOING CARDS](https://github.com/Saschamz/userscripts/raw/master/trello-ongoing.user.js)
+
 ## ⭐️ Trello Stars
 Locally star trello cards you need to keep track of by hovering them and pressing `§`.
 
