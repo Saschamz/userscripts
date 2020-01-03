@@ -1,3 +1,9 @@
+# Setup
+
+You'll need a plugin like [Tampmonkey for Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) before installing any scripts.
+
+> DISCLAIMER: You might want to go into settings and disable automatic script updates for Tampermonkey to
+
 ## 🌈 Console++
 
 Adds styling related methods to console object.
