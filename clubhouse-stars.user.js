@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  Locally star clubhouse cards you need to keep track of.
 // @author       Sascha Ringström
-// @match        https://app.clubhouse.io.com/*
+// @match        https://app.clubhouse.io/*
 // @grant        none
 // @downloadURL  https://github.com/Saschamz/userscripts/raw/master/clubhouse-stars.user.js
 // ==/UserScript==
@@ -13,16 +13,16 @@
   const STORAGE_KEY = 'STARRED_CARDS'
   const CUSTOM_CSS_STORAGE_KEY = 'STARRED_CARDS_CUSTOM_CSS'
   const STARRED_CLASS = 'clubhouse-stars-starred'
+  const CARDS_SELECTOR = 'a[id^=story]'
   const defaultCss = `
     .${STARRED_CLASS} {
         background: gold !important;
     }
   `
+  const starredCards = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY)))
   let hoveredCard = null
   let mouseUpLocation
   let mouseDownLocation
-
-  const starredCards = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY)))
 
   function attachDragListener(callback) {
     document.addEventListener('mouseup', ({ screenX, screenY }) => {
@@ -36,7 +36,7 @@
   }
 
   function getVisibleCards() {
-    return Array.from(document.querySelectorAll('a[id^=story]'))
+    return Array.from(document.querySelectorAll(CARDS_SELECTOR))
   }
 
   function addColorsToCards(cards) {
@@ -67,17 +67,40 @@
     addColorsToCards(getVisibleCards())
   }
 
-  function initialize() {
+  function retryIfNoElement(
+    querySelector,
+    callback,
+    interval = 50,
+    maxAttempts = 100,
+    attempt = 0
+  ) {
+    const element = document.querySelector(querySelector)
+
+    if (element) return callback()
+    if (attempt === maxAttempts) return
+
+    setTimeout(() => {
+      retryIfNoElement(
+        querySelector,
+        callback,
+        interval,
+        maxAttempts,
+        ++attempt
+      )
+    }, interval)
+  }
+
+  function initializeScript() {
     const css = document.createElement('style')
     css.innerHTML = localStorage.getItem(CUSTOM_CSS_STORAGE_KEY) || defaultCss
     document.body.appendChild(css)
 
-    initializeCards()
-    attachDragListener(() => setTimeout(() => initializeCards, 1200))
+    retryIfNoElement(CARDS_SELECTOR, initializeCards)
+    attachDragListener(() => retryIfNoElement(CARDS_SELECTOR, initializeCards))
 
     history.pushState = (f =>
       function pushState() {
-        setTimeout(() => initializeCards, 1200)
+        retryIfNoElement(CARDS_SELECTOR, initializeCards)
         var ret = f.apply(this, arguments)
         window.dispatchEvent(new Event('pushstate'))
         window.dispatchEvent(new Event('locationchange'))
@@ -86,7 +109,7 @@
 
     history.replaceState = (f =>
       function replaceState() {
-        setTimeout(() => initializeCards, 1200)
+        retryIfNoElement(CARDS_SELECTOR, initializeCards)
         var ret = f.apply(this, arguments)
         window.dispatchEvent(new Event('replacestate'))
         window.dispatchEvent(new Event('locationchange'))
@@ -94,7 +117,7 @@
       })(history.replaceState)
 
     window.addEventListener('popstate', () => {
-      setTimeout(() => initializeCards, 1200)
+      retryIfNoElement(CARDS_SELECTOR, initializeCards)
       window.dispatchEvent(new Event('locationchange'))
     })
 
@@ -117,17 +140,17 @@
   }
 
   window.clubhouseStars = {
-    starredClass = STARRED_CLASS,
+    starredClass: STARRED_CLASS,
     get css() {
       return localStorage.getItem(CUSTOM_CSS_STORAGE_KEY) || defaultCss
     },
     set css(styles) {
       localStorage.setItem(CUSTOM_CSS_STORAGE_KEY, styles)
       const css = document.createElement('style')
-      css.innerHTML = style
+      css.innerHTML = styles
       document.body.appendChild(css)
     }
   }
 
-  initialize()
+  initializeScript()
 })()
