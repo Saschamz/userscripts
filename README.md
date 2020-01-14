@@ -18,7 +18,7 @@ Adds styling related methods to console object.
 
 Automatically fills the WYSIWYG editor in Github when creating a new PR template.
 
-#### [INSTALL GITHUB PR TEMPLATE](https://github.com/Saschamz/userscripts/raw/master/bitbucket-pr-template.user.js)
+#### [INSTALL GITHUB PR TEMPLATE](https://github.com/Saschamz/userscripts/raw/master/github-pr-template.user.js)
 
 ## 📄 Bitbucket PR Template
 
