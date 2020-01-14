@@ -14,6 +14,12 @@ Adds styling related methods to console object.
 
 #### [INSTALL CONSOLE++](https://github.com/Saschamz/userscripts/raw/master/Console%2B%2B.user.js)
 
+## :octocat: Github PR Template
+
+Automatically fills the WYSIWYG editor in Github when creating a new PR template.
+
+#### [INSTALL BITBUCKET PR TEMPLATE](https://github.com/Saschamz/userscripts/raw/master/bitbucket-pr-template.user.js)
+
 ## 📄 Bitbucket PR Template
 
 Automatically fills the WYSIWYG editor in BitBucket when creating a new PR template.
