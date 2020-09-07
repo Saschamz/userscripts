@@ -26,15 +26,6 @@ function retryIfNoElement(
   }, interval)
 }
 
-function main() {
-  retryIfNoElement(
-    'textarea[id^=pull_request]',
-    el => (el.value = PR_TEMPLATE_TEXT),
-    200,
-    Infinity
-  )
-}
-
 const PR_TEMPLATE_TEXT = `## Description
 
 Description of your changes
@@ -68,5 +59,10 @@ Explain how in an ordered list of whats required to test this feature.
 `
 
 ;(function() {
-  main()
+  retryIfNoElement(
+    'textarea[id^=pull_request]',
+    el => (el.value = PR_TEMPLATE_TEXT),
+    200,
+    Infinity
+  )
 })()

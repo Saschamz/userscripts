@@ -2,7 +2,19 @@
 
 You'll need a plugin like [Tampmonkey for Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) before installing any scripts.
 
-> DISCLAIMER: You might want to go into settings and disable automatic script updates for Tampermonkey to
+> DISCLAIMER: You might want to go into settings and disable automatic script updates for Tampermonkey.
+
+## 👩‍💻→👨‍💻 Untrusted State Helper
+
+Helper UI to export/import state for [untrusted](https://alexnisnevich.github.io/untrusted/) between users.
+
+Created as a remote mob programming exercise tool to avoid the tedious setup of desktop remote control applications.
+
+### How to use
+
+1. Press the export state button (it will copy your localStorage as JSON to your clipboard).
+2. Send the JSON to another person.
+3. (other person) Press the import state button and paste the JSON into the prompt.
 
 ## 🌈 Console++
 
