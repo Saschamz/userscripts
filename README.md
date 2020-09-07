@@ -10,6 +10,8 @@ Helper UI to export/import state for [untrusted](https://alexnisnevich.github.io
 
 Created as a remote mob programming exercise tool to avoid the tedious setup of desktop remote control applications.
 
+#### [INSTALL UNTRUSTED STATE HELPER](https://github.com/Saschamz/userscripts/raw/master/untrusted-state-helper.user.js)
+
 ### How to use
 
 1. Press the export state button (it will copy your localStorage as JSON to your clipboard).
