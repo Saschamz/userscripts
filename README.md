@@ -41,10 +41,7 @@ Automatically fills the WYSIWYG editor in BitBucket when creating a new PR templ
 To customize the template make your changes in the editor and run the following inside your browser terminal:
 
 ```javascript
-localStorage.setItem(
-  'BITBUCKET_PR_TEMPLATE',
-  document.querySelector('.ProseMirror').innerHTML
-)
+localStorage.setItem('BITBUCKET_PR_TEMPLATE', document.querySelector('.ProseMirror').innerHTML)
 ```
 
 #### [INSTALL BITBUCKET PR TEMPLATE](https://github.com/Saschamz/userscripts/raw/master/bitbucket-pr-template.user.js)
@@ -87,3 +84,28 @@ window.starredCards.css = `
 > Uses localstorage to keep track of your stored cards and custom styles across browser sessions.
 
 #### [INSTALL CLUBHOUSE STARS](https://github.com/Saschamz/userscripts/raw/master/clubhouse-stars.user.js)
+
+## 🖌 \_css
+
+Adds the `_css` object to all websites that you can use to inject styles to the website. Useful for debugging. Also comes with a prebuilt `addRedBorder` method.
+
+**EXAMPLE**:
+
+```javascript
+// Adds the styles to the website
+_css.injectCss(`
+  * {
+    display: none;
+  }
+`)
+
+// Removes your injected css
+_css.ejectCss()
+
+// The selector argument is optional, default is *
+_css.addRedBorder('div')
+```
+
+> Uses localstorage to keep track of your stored cards and custom styles across browser sessions.
+
+#### [INSTALL \_CSS](https://github.com/Saschamz/userscripts/raw/master/_css_.user.js)
