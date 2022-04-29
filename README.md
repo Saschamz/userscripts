@@ -85,7 +85,7 @@ window.starredCards.css = `
 
 #### [INSTALL CLUBHOUSE STARS](https://github.com/Saschamz/userscripts/raw/master/clubhouse-stars.user.js)
 
-## 🖌 \_css
+## 🖌 \_CSS
 
 Adds the `_css` object to all websites that you can use to inject styles to the website. Useful for debugging. Also comes with a prebuilt `addRedBorder` method.
 
@@ -106,6 +106,4 @@ _css.ejectCss()
 _css.addRedBorder('div')
 ```
 
-> Uses localstorage to keep track of your stored cards and custom styles across browser sessions.
-
-#### [INSTALL \_CSS](https://github.com/Saschamz/userscripts/raw/master/_css_.user.js)
+#### [INSTALL \_CSS](https://github.com/Saschamz/userscripts/raw/master/_css.user.js)
